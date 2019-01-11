@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 @Service
-public class PersonServicesImpl implements PersonServices {
+public class PersonServiceImpl implements PersonService {
     private PersonDAO personDAO;
     public void setPersonDAO(PersonDAOImpl personDAO) {
         this.personDAO = personDAO;

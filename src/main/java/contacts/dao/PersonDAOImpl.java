@@ -9,6 +9,7 @@ import java.util.List;
 
 @Repository
 public class PersonDAOImpl implements PersonDAO{
+
     private SessionFactory sessionFactory;
 
     public void setSessionFactory(SessionFactory sessionF) {
@@ -24,7 +25,7 @@ public class PersonDAOImpl implements PersonDAO{
         Session session = this.sessionFactory.getCurrentSession();
         Person person = (Person) session.load(Person.class, new Integer(id));
         if (person != null){
-            session.delete(id);
+            session.delete(person);
         }
     }
 
@@ -43,9 +44,9 @@ public class PersonDAOImpl implements PersonDAO{
 
     public List<Person> listPersons() {
         Session session = this.sessionFactory.getCurrentSession();
-        List<Person> personList = session.createQuery("from Person").list();
+        List<Person> personsList = session.createQuery("from Person").list();
 
-        return personList;
+        return personsList;
     }
 
 

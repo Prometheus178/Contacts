@@ -4,7 +4,7 @@ import contacts.model.Person;
 
 import java.util.List;
 
-public interface PersonServices {
+public interface PersonService {
 
     public void addPerson(Person person);
     public void removePerson(int id);
