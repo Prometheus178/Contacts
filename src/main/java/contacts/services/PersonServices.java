@@ -9,7 +9,7 @@ public interface PersonServices {
     public void addPerson(Person person);
     public void removePerson(int id);
     public void updatePerson(Person person);
-    public Person getPersonByID(int id);
+    public Person getPersonById(int id);
     public List<Person> listPersons();
 
 }

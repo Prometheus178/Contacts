@@ -1,21 +1,18 @@
 package contacts.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="Person")
+
 public class Person {
+    @Id
+    @Column(name="id")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
     private String name;
-    private int phoneNumber;
+//    private int phoneNumber;
     private String country;
-
-    public Person(int id, String name, int phoneNumber, String country) {
-        this.id = id;
-        this.name = name;
-        this.phoneNumber = phoneNumber;
-        this.country = country;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
 
     public int getId() {
         return id;
@@ -33,13 +30,13 @@ public class Person {
         this.name = name;
     }
 
-    public int getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(int phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
+//    public int getPhoneNumber() {
+//        return phoneNumber;
+//    }
+//
+//    public void setPhoneNumber(int phoneNumber) {
+//        this.phoneNumber = phoneNumber;
+//    }
 
     public String getCountry() {
         return country;
@@ -49,27 +46,8 @@ public class Person {
         this.country = country;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Person person = (Person) o;
-
-        if (id != person.id) return false;
-        if (phoneNumber != person.phoneNumber) return false;
-        if (name != null ? !name.equals(person.name) : person.name != null) return false;
-        if (country != null ? !country.equals(person.country) : person.country != null) return false;
-
-        return true;
+    public String toString(){
+        return "id="+id+", name="+name+", country="+country;
     }
 
-    @Override
-    public int hashCode() {
-        int result = id;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + phoneNumber;
-        result = 31 * result + (country != null ? country.hashCode() : 0);
-        return result;
-    }
 }
